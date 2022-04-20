@@ -14,5 +14,3 @@ def add_post(post, channel, channel_link) -> None:
 def is_in_channel_list(channel: str) -> bool:
     return channel in channels.col_values(1)
 
-def get_channels():
-    return channels.col_values(1)
