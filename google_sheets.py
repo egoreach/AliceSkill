@@ -8,9 +8,11 @@ sheet = spider.open(TABLE)
 posts = sheet.worksheet("posts")
 channels = sheet.worksheet("channels")
 
+def add_post(post, channel, channel_link) -> None:
+    posts.append_row([post, channel, channel_link])
 
-def add_post(post, channel):
-    posts.append_row([post, channel])
+def is_in_channel_list(channel: str) -> bool:
+    return channel in channels.col_values(1)
 
-def add_channel(channel):
-    channels.append_row([channel])
+def get_channels():
+    return channels.col_values(1)
