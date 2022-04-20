@@ -17,11 +17,14 @@ async def new_messages_handler(event):
         raw_message = event.message.to_dict()  # сырое сообщение
         channel_id = raw_message['peer_id']['channel_id']
 
-        # пресловутый @channel
-        channel_username = '@' + (await client.get_entity(PeerChannel(channel_id))).to_dict()['username']
+        channel_entity = (await client.get_entity(PeerChannel(channel_id))).to_dict()
 
-        if is_in_channel_list(channel_username):
-            add_post(raw_message['message'], channel_username, f'https://t.me/{channel_username[1:]}')
+        # пресловутый @channel
+        channel_username = channel_entity['username']
+        channel_id = channel_entity['id']
+
+        if is_in_channel_list(channel_username) or is_in_channel_list(channel_id):
+            add_post(raw_message['message'], "@" + channel_username if isinstance(channel_username, str) else None, f'https://t.me/{channel_username}' if channel_username else None, channel_id)
 
     # Сообщания не от каналов не имеют поля channel_id
     except KeyError:
