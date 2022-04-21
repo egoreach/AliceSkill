@@ -5,29 +5,41 @@ from time import sleep
 from telegram_config import api_id, api_hash
 from google_sheets import get_all_channel
 
+
+
+# Инициализация клиента
 client = pyrogram.Client("pyrogram", api_id, api_hash)
 client.start()
 
 
-cached_channels = set()
 def main():
-    for _ in range(10**12):
+    cached_channels = set()  # Каналы, на которые клиент уже подписан
+
+    while True:
         to_subscribe = get_all_channel() - cached_channels
-        for channel in to_subscribe:
-            if '//' in channel and "+" not in channel:
-                channel = '@' + channel[channel.index('.me/') + 4:]
+
+        if to_subscribe:
+            print(f"Ёще остались: {to_subscribe}")
+
+        # raw_channel - так, как записано в таблице, channel - то, что нужно отдать функции
+        for raw_channel in to_subscribe:
+            channel = raw_channel
+
+            if ('//' in raw_channel or 't.me' in raw_channel) and "+" not in raw_channel:  # если имеем дело с ссылкой на публичный канал
+                channel = '@' + channel[channel.index('.me/') + 4:]  # переводим в формат @channel
 
             try:
                 client.join_chat(channel)
-                cached_channels.add(channel)
+                cached_channels.add(raw_channel)
             except pyrogram.errors.exceptions.bad_request_400.UserAlreadyParticipant:
                 print(f"Уже подписан на канал {channel}")
-            except pyrogram.errors.exceptions.flood_420.FloodWait:
-                print(f"Флуд (канал {channel})")
-                print(channel)
+                cached_channels.add(raw_channel)
+            except pyrogram.errors.exceptions.flood_420.FloodWait as e:
+                print(f"Флуд (канал {channel}), {e}")
+
             except Exception as e:
                 print(e)
-                print(channel)
+
         sleep(5)
 
 main()
