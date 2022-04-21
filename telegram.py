@@ -4,7 +4,7 @@ from telethon.tl.types import PeerChannel
 from time import sleep
 
 from telegram_config import api_id, api_hash
-from google_sheets import add_post, is_in_channel_list, get_all_channels
+from google_sheets import add_post
 
 
 client = TelegramClient('telethon', api_id, api_hash)
