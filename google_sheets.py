@@ -16,3 +16,6 @@ def is_in_channel_list(channel: str) -> bool:
         channel = '@' + channel
     return str(channel) in channels.col_values(1)
 
+def get_all_channel():
+    return set(channels.col_values(1))
+
