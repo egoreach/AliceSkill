@@ -1,8 +1,6 @@
 from telethon import TelegramClient, events, sync
 from telethon.tl.types import PeerChannel
 
-from time import sleep
-
 from telegram_config import api_id, api_hash
 from google_sheets import add_post
 
@@ -21,14 +19,25 @@ async def new_messages_handler(event):
 
         # пресловутый @channel
         channel_username = channel_entity['username']
+        channel_link = None
+        if isinstance(channel_username, str):
+            channel_username = "@" + channel_username
+            channel_link = f'https://t.me/{channel_username}'
+
         channel_id = channel_entity['id']
+        channel_title = channel_entity['title']
+        message = raw_message['message']
+        time = raw_message['date'].time()
 
         # if is_in_channel_list(channel_username) or is_in_channel_list(channel_id):  # так ли нужно эта проверка (ведь клиент подписан только на то, что нужно, а сообщения обрабатываются только из каналов)
-        add_post(raw_message['message'], "@" + channel_username if isinstance(channel_username, str) else None, f'https://t.me/{channel_username}' if channel_username else None, channel_id)
+        add_post(message, channel_username, channel_link, channel_id, channel_title, str(time))
 
     # Сообщания не от каналов не имеют поля channel_id
-    except KeyError:
-        pass
+    except KeyError as k:
+        print(k)
+
+    except Exception as e:
+        print(e)
 
 
 client.start()
