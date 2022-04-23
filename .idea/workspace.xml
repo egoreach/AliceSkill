@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6eee93e9-2214-4270-90fb-d25f38c5f1a8" name="Changes" comment="Удалил все ненужное">
+    <list default="true" id="6eee93e9-2214-4270-90fb-d25f38c5f1a8" name="Changes" comment="Небольшая правка">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pyrogram.session" beforeDir="false" afterPath="$PROJECT_DIR$/pyrogram.session" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/subscribing.py" beforeDir="false" afterPath="$PROJECT_DIR$/subscribing.py" afterDir="false" />
@@ -196,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650551589578</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Небольшая правка">
+      <created>1650696404593</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1650696404593</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +227,7 @@
     <MESSAGE value="Sync subscribing function" />
     <MESSAGE value="Рефакторинг + файл сессии" />
     <MESSAGE value="Удалил все ненужное" />
-    <option name="LAST_COMMIT_MESSAGE" value="Удалил все ненужное" />
+    <MESSAGE value="Небольшая правка" />
+    <option name="LAST_COMMIT_MESSAGE" value="Небольшая правка" />
   </component>
 </project>

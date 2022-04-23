@@ -1,9 +1,14 @@
 import pyrogram
+import warnings
 
 from time import sleep
 
 from telegram_config import api_id, api_hash
 from google_sheets import get_all_channels
+
+
+warnings.filterwarnings("ignore")
+
 
 TIME = 1  # 0.5 - слишком быстро
 
@@ -23,7 +28,7 @@ def main():
 
         # raw_channel - так, как записано в таблице, channel - то, что нужно отдать функции
         for raw_channel in to_subscribe:
-            channel = raw_channel
+            channel = raw_channel.strip()
 
             if (
                     '//' in raw_channel or 't.me' in raw_channel) and "+" not in raw_channel:  # если имеем дело с ссылкой на публичный канал
@@ -44,7 +49,9 @@ def main():
                 cached_channels.add(raw_channel)
 
 
+
             except Exception as e:
-                print(e)
+                print(e, raw_channel)
+                cached_channels.add(raw_channel)
 
         sleep(TIME)
