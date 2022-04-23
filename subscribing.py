@@ -39,6 +39,11 @@ def main():
                 # print(f"Флуд (канал {channel}), {e}")
                 pass
 
+            except pyrogram.errors.exceptions.bad_request_400.UsernameInvalid:
+                print(f"Канал {channel} не существует")
+                cached_channels.add(raw_channel)
+
+
             except Exception as e:
                 print(e)
 
