@@ -7,10 +7,12 @@ sheet = spider.open(TABLE)
 
 posts = sheet.worksheet("posts")
 channels = sheet.worksheet("channels")
+info = sheet.worksheet("info")
 
 
-def add_post(post, channel, channel_link, channel_id, title, time) -> None:
-    posts.append_row([post, channel, channel_link, channel_id, title, time])
+def add_post(post, channel, channel_link, channel_id, title, date) -> None:
+    posts.append_row([post, channel, channel_link, channel_id, title, date])
+    info.update('B2', int(info.acell('B2').value) + 1)
 
 
 def get_all_channels() -> set:
