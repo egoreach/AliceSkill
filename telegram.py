@@ -13,25 +13,27 @@ client = TelegramClient('telethon', api_id, api_hash)
 async def new_messages_handler(event):
     try:
         raw_message = event.message.to_dict()  # сырое сообщение
-        channel_id = raw_message['peer_id']['channel_id']
 
-        channel_entity = (await client.get_entity(PeerChannel(channel_id))).to_dict()
+        if not raw_message["from_id"]:
+            channel_id = raw_message['peer_id']['channel_id']
 
-        # пресловутый @channel
-        channel_username = channel_entity['username']
-        channel_link = None
-        if isinstance(channel_username, str):
-            channel_username = "@" + channel_username
-            channel_link = f'https://t.me/{channel_username}'
+            channel_entity = (await client.get_entity(PeerChannel(channel_id))).to_dict()
 
-        channel_id = channel_entity['id']
-        channel_title = channel_entity['title']
-        message = raw_message['message']
-        time = raw_message['date'].time()
+            # пресловутый @channel
+            channel_username = channel_entity['username']
+            channel_link = None
+            if isinstance(channel_username, str):
+                channel_username = "@" + channel_username
+                channel_link = f'https://t.me/{channel_username[1:]}'
 
-        # if is_in_channel_list(channel_username) or is_in_channel_list(channel_id):  # так ли нужно эта проверка (ведь клиент подписан только на то, что нужно, а сообщения обрабатываются только из каналов)
-        if len([i for i in message if i.isalpha() or i.isdigit()]) >= 1:
-            add_post(message, channel_username, channel_link, channel_id, channel_title, str(time))
+            channel_id = str(channel_entity['id'])
+            channel_title = channel_entity['title']
+            message = raw_message['message']
+            date = raw_message['date']
+
+            # if is_in_channel_list(channel_username) or is_in_channel_list(channel_id):  # так ли нужно эта проверка (ведь клиент подписан только на то, что нужно, а сообщения обрабатываются только из каналов)
+            if message and len([i for i in message if i.isalpha() or i.isdigit()]) >= 1:
+                add_post(message, channel_username, channel_link, channel_id, channel_title, str(date))
 
     # Сообщания не от каналов не имеют поля channel_id
     except KeyError as k:

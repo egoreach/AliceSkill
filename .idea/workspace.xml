@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6eee93e9-2214-4270-90fb-d25f38c5f1a8" name="Changes" comment="Проверка содержательности сообщения">
+    <list default="true" id="6eee93e9-2214-4270-90fb-d25f38c5f1a8" name="Changes" comment="Инкремент ячейки B2 листа info при добавлении поста">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/google_sheets.py" beforeDir="false" afterPath="$PROJECT_DIR$/google_sheets.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pyrogram.session" beforeDir="false" afterPath="$PROJECT_DIR$/pyrogram.session" afterDir="false" />
@@ -53,7 +53,7 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.editor.code.editing" />
   </component>
-  <component name="RunManager" selected="Python.google_sheets (1)">
+  <component name="RunManager" selected="Python.starter">
     <configuration name="google_sheets (1)" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="YandexSkill" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -241,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650705059047</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Инкремент ячейки B2 листа info при добавлении поста">
+      <created>1650805386834</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1650805386834</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,6 +276,7 @@
     <MESSAGE value="Небольшая правка" />
     <MESSAGE value="Все" />
     <MESSAGE value="Проверка содержательности сообщения" />
-    <option name="LAST_COMMIT_MESSAGE" value="Проверка содержательности сообщения" />
+    <MESSAGE value="Инкремент ячейки B2 листа info при добавлении поста" />
+    <option name="LAST_COMMIT_MESSAGE" value="Инкремент ячейки B2 листа info при добавлении поста" />
   </component>
 </project>
