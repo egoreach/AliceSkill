@@ -3,12 +3,12 @@ import warnings
 from datetime import datetime, timezone
 
 from telegram_config import api_id, api_hash
-from google_sheets import get_all_channels, add_post
+from google_sheets import get_all_channels, add_post, add_posts
 
 
 warnings.filterwarnings("ignore")
 
-POSTS_CNT = 5  # количество постов, которые стягивает бот сразу после подписки подписке
+POSTS_CNT = 10  # количество постов, которые стягивает бот сразу после подписки подписке
 TIME = 1  # 0.5 - слишком быстро
 
 
@@ -35,6 +35,9 @@ def main():
 
             if ('//' in raw_channel or 't.me' in raw_channel) and "+" not in raw_channel:  # если имеем дело с ссылкой на публичный канал
                 channel = '@' + channel[channel.index('.me/') + 4:]  # переводим в формат @channel
+            elif '+' in raw_channel and raw_channel[0] == "@":
+                channel = f"https://t.me/{raw_channel[1:]}"
+                print(channel)
 
             if not any([channel in cached_channels, channel[1:] in cached_channels, raw_channel in cached_channels]):
                 try:
@@ -55,8 +58,7 @@ def main():
                             to_add.append([message_text, '@' + message.sender_chat.username, f'https://t.me/{message.sender_chat.username}', str(abs(message.sender_chat.id))[-10:], message.sender_chat.title, str(datetime.fromtimestamp(message.date, tz=timezone.utc))])
                             cnt += 1
 
-                    for i in list(reversed(to_add)):
-                        add_post(*i)
+                    add_posts(list(reversed(to_add)))
 
                 except pyrogram.errors.exceptions.bad_request_400.UserAlreadyParticipant:
                     print(f"Уже подписан на канал {channel}")

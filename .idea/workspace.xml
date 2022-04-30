@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6eee93e9-2214-4270-90fb-d25f38c5f1a8" name="Changes" comment="Инкремент ячейки B2 листа info при добавлении поста">
       <change beforePath="$PROJECT_DIR$/pyrogram.session" beforeDir="false" afterPath="$PROJECT_DIR$/pyrogram.session" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/subscribing.py" beforeDir="false" afterPath="$PROJECT_DIR$/subscribing.py" afterDir="false" />
+>>>>>>> 198024885394bc14672442dd3ef11f352f7fe781
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,9 +59,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\egoreach\AppData\Local\Programs\Python\Python39\python.exe" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
@@ -99,7 +103,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\egoreach\AppData\Local\Programs\Python\Python39\python.exe" />
+      <option name="SDK_HOME" value="C:\Users\kab310\PycharmProjects\YandexSkill\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -121,9 +125,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\egoreach\AppData\Local\Programs\Python\Python39\python.exe" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
