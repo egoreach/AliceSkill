@@ -15,6 +15,11 @@ def add_post(post, channel, channel_link, channel_id, title, date) -> None:
     posts.append_row([post, channel, channel_link, channel_id, title, date])
 
 
+def add_posts(some_posts):
+    sleep(1)
+    posts.append_rows(some_posts)
+
+
 def get_all_channels() -> set:
     sleep(1)
     return set(channels.col_values(1))
