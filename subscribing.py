@@ -52,7 +52,8 @@ def main():
                             break
                         message_text = message.text if message.text else message.caption
                         if message_text and len([i for i in message_text if i.isdigit() or i.isalpha()]) >= 1:
-                            to_add.append([message_text, '@' + message.sender_chat.username, f'https://t.me/{message.sender_chat.username}', str(abs(message.sender_chat.id))[-10:], message.sender_chat.title, str(datetime.fromtimestamp(message.date, tz=timezone.utc))])
+                            date = datetime.fromtimestamp(message.date, tz=timezone.utc)
+                            to_add.append([message_text, '@' + message.sender_chat.username, f'https://t.me/{message.sender_chat.username}', str(abs(message.sender_chat.id))[-10:], message.sender_chat.title, str(date), date.timestamp()])
                             cnt += 1
 
                     for i in list(reversed(to_add)):

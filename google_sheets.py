@@ -10,9 +10,9 @@ posts = sheet.worksheet("posts")
 channels = sheet.worksheet("channels")
 
 
-def add_post(post, channel, channel_link, channel_id, title, date) -> None:
+def add_post(post, channel, channel_link, channel_id, title, date, unix) -> None:
     sleep(1)
-    posts.append_row([post, channel, channel_link, channel_id, title, date])
+    posts.append_row([post, channel, channel_link, channel_id, title, date, unix])
 
 
 def get_all_channels() -> set:
