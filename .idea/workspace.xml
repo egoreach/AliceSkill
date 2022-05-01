@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6eee93e9-2214-4270-90fb-d25f38c5f1a8" name="Changes" comment="...">
+    <list default="true" id="6eee93e9-2214-4270-90fb-d25f38c5f1a8" name="Changes" comment="fixed pyrogram.session">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyrogram.session" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/google_sheets.py" beforeDir="false" afterPath="$PROJECT_DIR$/google_sheets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service_account.json" beforeDir="false" afterPath="$PROJECT_DIR$/first.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/subscribing.py" beforeDir="false" afterPath="$PROJECT_DIR$/subscribing.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,9 +59,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\egoreach\AppData\Local\Programs\Python\Python39\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/google_sheets.py" />
@@ -159,8 +160,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.starter" />
-        <item itemvalue="Python.subscribing" />
         <item itemvalue="Python.telegram" />
+        <item itemvalue="Python.subscribing" />
         <item itemvalue="Python.google_sheets" />
       </list>
     </recent_temporary>
@@ -259,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651416642483</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fixed pyrogram.session">
+      <created>1651417019736</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1651417019736</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,6 +298,7 @@
     <MESSAGE value="Инкремент ячейки B2 листа info при добавлении поста" />
     <MESSAGE value="unix" />
     <MESSAGE value="..." />
-    <option name="LAST_COMMIT_MESSAGE" value="..." />
+    <MESSAGE value="fixed pyrogram.session" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed pyrogram.session" />
   </component>
 </project>
