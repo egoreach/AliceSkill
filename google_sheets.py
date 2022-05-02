@@ -32,6 +32,10 @@ fourth_table = fourth_account.open(TABLE)
 fourth_posts = fourth_table.worksheet("posts")
 fourth_channels = fourth_table.worksheet("channels")
 
+
+channels_list = [first_channels, second_channels, third_channels, fourth_channels]
+
+
 with open("current.txt", "w") as f:
     f.write(str(len(first_posts.col_values(1))))
 
@@ -54,7 +58,6 @@ def add_post(post, channel, channel_link, channel_id, title, date, unix) -> None
     fourth_channels.update_cell(cell.row, cell.col + 1, value + "," + str(current_post_number) if value else str(current_post_number))
 
 
-
 def add_posts(some_posts):
     global current_post_number
     sleep(1)
@@ -71,13 +74,17 @@ def add_posts(some_posts):
 
     new = ",".join([str(i) for i in range(current_post_number - len(some_posts) + 1, current_post_number + 1)])
     if value:
-        new_value = value + new
+        new_value = value + ',' + new
     else:
         new_value = new
 
     fourth_channels.update_cell(cell.row, cell.col + 1, new_value)
 
 
+ch = 0
 def get_all_channels() -> set:
-    sleep(1)
-    return set(first_channels.col_values(1))
+    global ch
+
+    sleep(0.26)
+    ch += 1
+    return set(channels_list[ch % 4].col_values(1))

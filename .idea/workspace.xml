@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6eee93e9-2214-4270-90fb-d25f38c5f1a8" name="Changes" comment="fixed pyrogram.session">
-      <change afterPath="$PROJECT_DIR$/current.txt" afterDir="false" />
+    <list default="true" id="6eee93e9-2214-4270-90fb-d25f38c5f1a8" name="Changes" comment="Разное">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/current.txt" beforeDir="false" afterPath="$PROJECT_DIR$/current.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/google_sheets.py" beforeDir="false" afterPath="$PROJECT_DIR$/google_sheets.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pyrogram.session" beforeDir="false" afterPath="$PROJECT_DIR$/pyrogram.session" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/subscribing.py" beforeDir="false" afterPath="$PROJECT_DIR$/subscribing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/telethon.session" beforeDir="false" afterPath="$PROJECT_DIR$/telethon.session" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -269,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651417019736</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Разное">
+      <created>1651471124117</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1651471124117</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,6 +306,7 @@
     <MESSAGE value="unix" />
     <MESSAGE value="..." />
     <MESSAGE value="fixed pyrogram.session" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed pyrogram.session" />
+    <MESSAGE value="Разное" />
+    <option name="LAST_COMMIT_MESSAGE" value="Разное" />
   </component>
 </project>
