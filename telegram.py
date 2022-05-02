@@ -30,10 +30,11 @@ async def new_messages_handler(event):
             channel_title = channel_entity['title']
             message = raw_message['message']
             date = raw_message['date']
+            unix = raw_message['date'].timestamp()
 
             # if is_in_channel_list(channel_username) or is_in_channel_list(channel_id):  # так ли нужно эта проверка (ведь клиент подписан только на то, что нужно, а сообщения обрабатываются только из каналов)
             if message and len([i for i in message if i.isalpha() or i.isdigit()]) >= 1:
-                add_post(message, channel_username, channel_link, channel_id, channel_title, str(date))
+                add_post(message, channel_username, channel_link, channel_id, channel_title, str(date), unix)
 
     # Сообщания не от каналов не имеют поля channel_id
     except KeyError as k:

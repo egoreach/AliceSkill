@@ -5,7 +5,6 @@ from datetime import datetime, timezone
 from telegram_config import api_id, api_hash
 from google_sheets import get_all_channels, add_post, add_posts
 
-
 warnings.filterwarnings("ignore")
 
 POSTS_CNT = 10  # количество постов, которые стягивает бот сразу после подписки подписке
@@ -25,7 +24,6 @@ def main():
         except TypeError:
             print("TimeOut")
 
-
         if to_subscribe:
             print(f"Ёще остались: {to_subscribe}")
 
@@ -33,7 +31,8 @@ def main():
         for raw_channel in to_subscribe:
             channel = raw_channel.strip()
 
-            if ('//' in raw_channel or 't.me' in raw_channel) and "+" not in raw_channel:  # если имеем дело с ссылкой на публичный канал
+            if (
+                    '//' in raw_channel or 't.me' in raw_channel) and "+" not in raw_channel:  # если имеем дело с ссылкой на публичный канал
                 channel = '@' + channel[channel.index('.me/') + 4:]  # переводим в формат @channel
             elif '+' in raw_channel and raw_channel[0] == "@":
                 channel = f"https://t.me/{raw_channel[1:]}"
@@ -49,13 +48,16 @@ def main():
                     to_add = []
                     cnt = 0
 
-
                     for message in client.get_history(channel):
                         if message.chat.type != 'channel' or cnt == POSTS_CNT:
                             break
                         message_text = message.text if message.text else message.caption
                         if message_text and len([i for i in message_text if i.isdigit() or i.isalpha()]) >= 1:
-                            to_add.append([message_text, '@' + message.sender_chat.username, f'https://t.me/{message.sender_chat.username}', str(abs(message.sender_chat.id))[-10:], message.sender_chat.title, str(datetime.fromtimestamp(message.date, tz=timezone.utc))])
+                            date = datetime.fromtimestamp(message.date, tz=timezone.utc)
+                            to_add.append([message_text, '@' + message.sender_chat.username,
+                                           f'https://t.me/{message.sender_chat.username}',
+                                           str(abs(message.sender_chat.id))[-10:], message.sender_chat.title, str(date),
+                                           date.timestamp()])
                             cnt += 1
 
                     add_posts(list(reversed(to_add)))
@@ -74,3 +76,7 @@ def main():
                 except Exception as e:
                     print(e, raw_channel)
                     cached_channels.add(raw_channel)
+
+
+if __name__ == "__main__":
+    main()

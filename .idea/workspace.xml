@@ -4,12 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="6eee93e9-2214-4270-90fb-d25f38c5f1a8" name="Changes" comment="Инкремент ячейки B2 листа info при добавлении поста">
       <change beforePath="$PROJECT_DIR$/pyrogram.session" beforeDir="false" afterPath="$PROJECT_DIR$/pyrogram.session" afterDir="false" />
 <<<<<<< HEAD
 =======
       <change beforePath="$PROJECT_DIR$/subscribing.py" beforeDir="false" afterPath="$PROJECT_DIR$/subscribing.py" afterDir="false" />
 >>>>>>> 198024885394bc14672442dd3ef11f352f7fe781
+=======
+    <list default="true" id="6eee93e9-2214-4270-90fb-d25f38c5f1a8" name="Changes" comment="всякое">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/current.txt" beforeDir="false" afterPath="$PROJECT_DIR$/current.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyrogram.session" beforeDir="false" afterPath="$PROJECT_DIR$/pyrogram.session" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telethon.session" beforeDir="false" afterPath="$PROJECT_DIR$/telethon.session" afterDir="false" />
+>>>>>>> 4246b0f4998061fd83a5fcac347c54d6732033db
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,9 +67,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\kab310\PycharmProjects\YandexSkill_Done\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
@@ -103,9 +111,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\kab310\PycharmProjects\YandexSkill\venv\Scripts\python.exe" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
@@ -147,9 +155,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\egoreach\AppData\Local\Programs\Python\Python39\python.exe" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
@@ -165,8 +173,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.starter" />
-        <item itemvalue="Python.subscribing" />
         <item itemvalue="Python.telegram" />
+        <item itemvalue="Python.subscribing" />
         <item itemvalue="Python.google_sheets" />
       </list>
     </recent_temporary>
@@ -252,7 +260,42 @@
       <option name="project" value="LOCAL" />
       <updated>1650805386834</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="unix">
+      <created>1651416409472</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1651416409472</updated>
+    </task>
+    <task id="LOCAL-00012" summary="...">
+      <created>1651416642483</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1651416642483</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fixed pyrogram.session">
+      <created>1651417019736</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1651417019736</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Разное">
+      <created>1651471124117</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1651471124117</updated>
+    </task>
+    <task id="LOCAL-00015" summary="всякое">
+      <created>1651471867766</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1651471867766</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,6 +323,11 @@
     <MESSAGE value="Все" />
     <MESSAGE value="Проверка содержательности сообщения" />
     <MESSAGE value="Инкремент ячейки B2 листа info при добавлении поста" />
-    <option name="LAST_COMMIT_MESSAGE" value="Инкремент ячейки B2 листа info при добавлении поста" />
+    <MESSAGE value="unix" />
+    <MESSAGE value="..." />
+    <MESSAGE value="fixed pyrogram.session" />
+    <MESSAGE value="Разное" />
+    <MESSAGE value="всякое" />
+    <option name="LAST_COMMIT_MESSAGE" value="всякое" />
   </component>
 </project>
