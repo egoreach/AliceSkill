@@ -42,7 +42,7 @@ with open("current.txt", "w") as f:
 
 def add_post(post, channel, channel_link, channel_id, title, date, unix) -> None:
     sleep(1)
-
+    print("fuunk")
     first_posts.append_row([post, channel, channel_link, channel_id, title, date, unix])
 
     with open("current.txt", "r+") as f:
@@ -61,7 +61,7 @@ def add_post(post, channel, channel_link, channel_id, title, date, unix) -> None
 def add_posts(some_posts):
     global current_post_number
     sleep(1)
-
+    print("func")
     first_posts.append_rows(some_posts)
     with open("current.txt", "r+") as f:
         current_post_number = int(f.read())
@@ -83,13 +83,7 @@ def add_posts(some_posts):
 
 ch = 0
 def get_all_channels() -> set:
-<<<<<<< HEAD
-    sleep(1)
-    return set(channels.col_values(1))
-=======
-    global ch
-
+    print("FuncGet")
     sleep(0.26)
     ch += 1
     return set(channels_list[ch % 4].col_values(1))
->>>>>>> 4246b0f4998061fd83a5fcac347c54d6732033db
