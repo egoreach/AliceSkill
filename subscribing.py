@@ -76,7 +76,7 @@ def main():
                 except Exception as e:
                     print(e, raw_channel)
                     cached_channels.add(raw_channel)
-
+        cached_channels.add(raw_channel)
 
 if __name__ == "__main__":
     main()
