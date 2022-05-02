@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6eee93e9-2214-4270-90fb-d25f38c5f1a8" name="Changes" comment="Разное">
+    <list default="true" id="6eee93e9-2214-4270-90fb-d25f38c5f1a8" name="Changes" comment="всякое">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/current.txt" beforeDir="false" afterPath="$PROJECT_DIR$/current.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/google_sheets.py" beforeDir="false" afterPath="$PROJECT_DIR$/google_sheets.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pyrogram.session" beforeDir="false" afterPath="$PROJECT_DIR$/pyrogram.session" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/telethon.session" beforeDir="false" afterPath="$PROJECT_DIR$/telethon.session" afterDir="false" />
     </list>
@@ -275,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651471124117</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="всякое">
+      <created>1651471867766</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1651471867766</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,6 +313,7 @@
     <MESSAGE value="..." />
     <MESSAGE value="fixed pyrogram.session" />
     <MESSAGE value="Разное" />
-    <option name="LAST_COMMIT_MESSAGE" value="Разное" />
+    <MESSAGE value="всякое" />
+    <option name="LAST_COMMIT_MESSAGE" value="всякое" />
   </component>
 </project>
