@@ -57,7 +57,7 @@ def add_post(post, channel, channel_link, channel_id, title, date, unix) -> None
         value = third_channels.cell(cell.row, cell.col + 1).value
 
         fourth_channels.update_cell(cell.row, cell.col + 1, value + "," + str(current_post_number) if value else str(current_post_number))
-    except gspread.exception.APIError:
+    except gspread.exceptions.APIError:
         print("gspread.exceptions.APIError")
         sleep(31)
     except Exception as e:
@@ -86,7 +86,7 @@ def add_posts(some_posts):
             new_value = new
 
         fourth_channels.update_cell(cell.row, cell.col + 1, new_value)
-    except gspread.exception.APIError:
+    except gspread.exceptions.APIError:
         print("gspread.exceptions.APIError")
         sleep(31)
     except Exception as e:
@@ -100,7 +100,7 @@ def get_all_channels() -> set:
         sleep(0.26)
         ch += 1
         return set(channels_list[ch % 4].col_values(1))
-    except gspread.exception.APIError:
+    except gspread.exceptions.APIError:
         print("gspread.exceptions.APIError")
         sleep(31)
     except Exception as e:
