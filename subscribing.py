@@ -1,9 +1,11 @@
 import pyrogram
 import warnings
+
 from datetime import datetime, timezone
 
 from telegram_config import api_id, api_hash
-from google_sheets import get_all_channels, add_post, add_posts
+from google_sheets import get_all_channels, add_post, add_posts, add_channel
+from search import search_for_channel
 
 warnings.filterwarnings("ignore")
 
@@ -13,6 +15,7 @@ TIME = 1  # 0.5 - слишком быстро
 
 def main():
     # Инициализация клиента
+    print(24576245)
     client = pyrogram.Client("pyrogram", api_id, api_hash)
     client.start()
 
@@ -20,7 +23,7 @@ def main():
 
     while True:
         try:
-            to_subscribe = get_all_channels() - cached_channels
+            to_subscribe = get_all_channels() - cached_channels - {"title"}
         except TypeError:
             print("TimeOut")
 
@@ -31,15 +34,22 @@ def main():
         for raw_channel in to_subscribe:
             channel = raw_channel.strip()
 
-            if (
-                    '//' in raw_channel or 't.me' in raw_channel) and "+" not in raw_channel:  # если имеем дело с ссылкой на публичный канал
-                channel = '@' + channel[channel.index('.me/') + 4:]  # переводим в формат @channel
-            elif '+' in raw_channel and raw_channel[0] == "@":
-                channel = f"https://t.me/{raw_channel[1:]}"
-                print(channel)
+            if '@' not in raw_channel:
+                channel = search_for_channel(raw_channel)
+                if channel:
+                    add_channel(channel)
+                    cached_channels.add(raw_channel)
+                    continue
 
-            if not any([channel in cached_channels, channel[1:] in cached_channels, raw_channel in cached_channels]):
-                try:
+            else:
+                if ('//' in raw_channel or 't.me' in raw_channel) and "+" not in raw_channel:  # если имеем дело с ссылкой на публичный канал
+                    channel = '@' + channel[channel.index('.me/') + 4:]  # переводим в формат @channel
+                elif '+' in raw_channel and raw_channel[0] == "@":
+                    channel = f"https://t.me/{raw_channel[1:]}"
+                    print(channel)
+
+            try:
+                if not any([channel in cached_channels, channel[1:] in cached_channels, raw_channel in cached_channels]):
                     # собственно, подписка
                     client.join_chat(channel)
                     cached_channels.add(raw_channel)
@@ -62,20 +72,20 @@ def main():
 
                     add_posts(list(reversed(to_add)))
 
-                except pyrogram.errors.exceptions.bad_request_400.UserAlreadyParticipant:
-                    print(f"Уже подписан на канал {channel}")
-                    cached_channels.add(raw_channel)
+            except pyrogram.errors.exceptions.bad_request_400.UserAlreadyParticipant:
+                print(f"Уже подписан на канал {channel}")
+                cached_channels.add(raw_channel)
 
-                except pyrogram.errors.exceptions.flood_420.FloodWait as e:
-                    print(f"Флуд (канал {channel}), {e}")
+            except pyrogram.errors.exceptions.flood_420.FloodWait as e:
+                print(f"Флуд (канал {channel}), {e}")
 
-                except pyrogram.errors.exceptions.bad_request_400.UsernameInvalid:
-                    print(f"Имя невалидно: {channel}, {raw_channel}")
-                    cached_channels.add(raw_channel)
+            except pyrogram.errors.exceptions.bad_request_400.UsernameInvalid:
+                print(f"Имя невалидно: {channel}, {raw_channel}")
+                cached_channels.add(raw_channel)
 
-                except Exception as e:
-                    print(e, raw_channel)
-                    cached_channels.add(raw_channel)
+            except Exception as e:
+                print(e, raw_channel)
+                cached_channels.add(raw_channel)
         cached_channels.add(raw_channel)
 
 if __name__ == "__main__":

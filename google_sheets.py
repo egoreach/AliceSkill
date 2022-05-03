@@ -104,3 +104,7 @@ def get_all_channels() -> set:
         sleep(31)
     except Exception as e:
         print(e)
+
+def add_channel(channel):
+    sleep(0.5)
+    fourth_channels.append_row([channel])
