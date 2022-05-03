@@ -41,49 +41,67 @@ with open("current.txt", "w") as f:
 
 
 def add_post(post, channel, channel_link, channel_id, title, date, unix) -> None:
-    sleep(1)
-    print("fuunk")
-    first_posts.append_row([post, channel, channel_link, channel_id, title, date, unix])
+    try:
+        sleep(1)
+        print("fuunk")
+        first_posts.append_row([post, channel, channel_link, channel_id, title, date, unix])
 
-    with open("current.txt", "r+") as f:
-        current_post_number = int(f.read())
-        current_post_number += 1
-    with open("current.txt", "w") as f:
-        f.write(str(current_post_number))
+        with open("current.txt", "r+") as f:
+            current_post_number = int(f.read())
+            current_post_number += 1
+        with open("current.txt", "w") as f:
+            f.write(str(current_post_number))
 
 
-    cell = second_channels.find(channel)
-    value = third_channels.cell(cell.row, cell.col + 1).value
+        cell = second_channels.find(channel)
+        value = third_channels.cell(cell.row, cell.col + 1).value
 
-    fourth_channels.update_cell(cell.row, cell.col + 1, value + "," + str(current_post_number) if value else str(current_post_number))
+        fourth_channels.update_cell(cell.row, cell.col + 1, value + "," + str(current_post_number) if value else str(current_post_number))
+    except gspread.exception.APIError:
+        print("gspread.exceptions.APIError")
+        sleep(31)
+    except Exception as e:
+        print(e)
 
 
 def add_posts(some_posts):
-    global current_post_number
-    sleep(1)
-    print("func")
-    first_posts.append_rows(some_posts)
-    with open("current.txt", "r+") as f:
-        current_post_number = int(f.read())
-        current_post_number += len(some_posts)
-    with open("current.txt", "w") as f:
-        f.write(str(current_post_number))
+    try:
+        global current_post_number
+        sleep(1)
+        print("func")
+        first_posts.append_rows(some_posts)
+        with open("current.txt", "r+") as f:
+            current_post_number = int(f.read())
+            current_post_number += len(some_posts)
+        with open("current.txt", "w") as f:
+            f.write(str(current_post_number))
 
-    cell = second_channels.find(some_posts[0][1])
-    value = third_channels.cell(cell.row, cell.col + 1).value
+        cell = second_channels.find(some_posts[0][1])
+        value = third_channels.cell(cell.row, cell.col + 1).value
 
-    new = ",".join([str(i) for i in range(current_post_number - len(some_posts) + 1, current_post_number + 1)])
-    if value:
-        new_value = value + ',' + new
-    else:
-        new_value = new
+        new = ",".join([str(i) for i in range(current_post_number - len(some_posts) + 1, current_post_number + 1)])
+        if value:
+            new_value = value + ',' + new
+        else:
+            new_value = new
 
-    fourth_channels.update_cell(cell.row, cell.col + 1, new_value)
+        fourth_channels.update_cell(cell.row, cell.col + 1, new_value)
+    except gspread.exception.APIError:
+        print("gspread.exceptions.APIError")
+        sleep(31)
+    except Exception as e:
+        print(e)
 
 
 ch = 0
 def get_all_channels() -> set:
-    print("FuncGet")
-    sleep(0.26)
-    ch += 1
-    return set(channels_list[ch % 4].col_values(1))
+    try:
+        print("FuncGet")
+        sleep(0.26)
+        ch += 1
+        return set(channels_list[ch % 4].col_values(1))
+    except gspread.exception.APIError:
+        print("gspread.exceptions.APIError")
+        sleep(31)
+    except Exception as e:
+        print(e)
