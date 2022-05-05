@@ -19,7 +19,7 @@ def main():
     client = pyrogram.Client("pyrogram", api_id, api_hash)
     client.start()
 
-    cached_channels = set()  # Каналы, на которые клиент уже подписан
+    cached_channels = get_all_channels()  # Каналы, на которые клиент уже подписан
 
     while True:
         try:
