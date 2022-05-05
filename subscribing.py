@@ -35,7 +35,11 @@ def main():
             channel = raw_channel.strip()
 
             if '@' not in raw_channel:
-                channel = search_for_channel(raw_channel)
+                try:
+                    channel = search_for_channel(raw_channel)
+                except Exception as e:
+                    pass
+
                 if channel:
                     add_channel(channel)
                     cached_channels.add(raw_channel)
