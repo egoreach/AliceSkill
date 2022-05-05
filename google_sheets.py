@@ -65,7 +65,6 @@ def add_post(post, channel, channel_link, channel_id, title, date, unix) -> None
 
 def add_posts(some_posts):
     try:
-        global current_post_number
         sleep(1)
         first_posts.append_rows(some_posts)
         with open("current.txt", "r+") as f:
@@ -91,14 +90,11 @@ def add_posts(some_posts):
         print(e)
 
 
-ch = 0
-def get_all_channels() -> set:
-    global ch
 
+def get_all_channels() -> set:
     try:
-        sleep(0.26)
-        ch += 1
-        return set(channels_list[ch % 4].col_values(1))
+        sleep(1)
+        return set(second_channels.col_values(1))
     except gspread.exceptions.APIError:
         print("gspread.exceptions.APIError")
         sleep(31)
@@ -106,5 +102,11 @@ def get_all_channels() -> set:
         print(e)
 
 def add_channel(channel):
-    sleep(0.5)
-    fourth_channels.append_row([channel])
+    try:
+        sleep(1)
+        fourth_channels.append_row([channel])
+    except gspread.exceptions.APIError:
+        print("gspread.exceptions.APIError")
+        sleep(31)
+    except Exception as e:
+        print(e)
