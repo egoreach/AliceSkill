@@ -74,8 +74,6 @@ def add_post(post, channel, channel_link, channel_id, title, date, unix) -> None
         cell = get_idle_channels_account().find(channel)
         value = get_idle_channels_account().cell(cell.row, cell.col + 1).value
 
-        print(value + "," + str(current_post_number) if value else str(current_post_number))
-
         get_idle_channels_account().update_cell(cell.row, cell.col + 1,
                                                 value + "," + str(current_post_number) if value else str(
                                                     current_post_number))
