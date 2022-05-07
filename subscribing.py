@@ -23,23 +23,21 @@ def main():
 
     print("Поехали")
     while True:
-        # try:
-        all_titles = get_all_titles()
-        for i in range(start, len(all_titles)):
-            title = all_titles[i].strip()
-            print(title)
-            start += 1
-            if title[0] != '@':
-                search_result = search_for_channel(title)
-                if search_result:
-                    print(f"Найден канал: {search_result}")
-                    print(i)
-                    get_idle_titles_account().update_cell(i + 1, 1, search_result)
+        try:
+            all_titles = get_all_titles()
+            for i in range(start, len(all_titles)):
+                title = all_titles[i].strip()
+                print(title )
+                start += 1
+                if title[0] != '@':
+                    search_result = search_for_channel(title)
+                    if search_result:
+                        print(f"Найден канал: {search_result}")
+                        print(i)
 
-                    if search_result not in get_all_channels():
-                        add_channel(search_result)
-        # except Exception as e:
-        #     print(e)
+                        get_idle_titles_account().update_cell(i + 1, 1, search_result)
+        except Exception as e:
+             print(e)
 
         try:
             to_subscribe = get_all_channels() - cached_channels - {"title"}
