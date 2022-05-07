@@ -3,7 +3,7 @@ from telethon import functions
 
 import asyncio
 
-client = TelegramClient('search', 7891326, 'b626fc3516cdef753a9d27dcf096fd25')
+client = TelegramClient('search', 11983547, '6b3179f42f32e8a31b3644523a8c1f8c')
 
 is_started = False
 async def async_search(q):
@@ -14,13 +14,12 @@ async def async_search(q):
         is_started = True
 
     try:
-        result = (await client(functions.contacts.SearchRequest(q, limit=10))).to_dict()['chats']
-
+        result = (await client(functions.contacts.SearchRequest(q, limit=100))).to_dict()['chats']
         for i in result:
-            if i['access_hash'] < 0:
+            if not i['megagroup'] and not i['gigagroup']:
                 return i['username']
     except Exception as e:
-        pprint(e, q)
+        print(e, q)
 
 loop = asyncio.get_event_loop()
 
