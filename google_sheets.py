@@ -8,7 +8,7 @@ first_table = first_account.open(TABLE)
 
 first_posts = first_table.worksheet("posts")
 first_channels = first_table.worksheet("channels")
-first_titles = first_table.worksheet("titles")
+first_titles = first_table.worksheet("person")
 
 
 second_account = gspread.service_account("second.json")
@@ -16,7 +16,7 @@ second_table = second_account.open(TABLE)
 
 second_posts = second_table.worksheet("posts")
 second_channels = second_table.worksheet("channels")
-second_titles = second_table.worksheet("titles")
+second_titles = second_table.worksheet("person")
 
 
 third_account = gspread.service_account("third.json")
@@ -24,7 +24,7 @@ third_table = third_account.open(TABLE)
 
 third_posts = third_table.worksheet("posts")
 third_channels = third_table.worksheet("channels")
-third_titles = third_table.worksheet("titles")
+third_titles = third_table.worksheet("person")
 
 
 fourth_account = gspread.service_account("fourth.json")
@@ -32,7 +32,7 @@ fourth_table = fourth_account.open(TABLE)
 
 fourth_posts = fourth_table.worksheet("posts")
 fourth_channels = fourth_table.worksheet("channels")
-fourth_titles = fourth_table.worksheet("titles")
+fourth_titles = fourth_table.worksheet("person")
 
 
 channels_list = [first_channels, second_channels, third_channels, fourth_channels]
@@ -145,7 +145,7 @@ def get_all_channels() -> set:
 
 def get_all_titles() -> list:
     try:
-        return get_idle_titles_account().col_values(1)
+        return get_idle_titles_account().col_values(3)
     except gspread.exceptions.APIError:
         print("gspread.exceptions.APIError")
         sleep(31)
