@@ -49,24 +49,11 @@ def main():
         for raw_channel in to_subscribe:
             channel = raw_channel.strip()
 
-            if '@' not in raw_channel:
-                try:
-                    channel = search_for_channel(raw_channel)
-                except Exception as e:
-                    pass
-
-                if channel:
-                    add_channel(channel)
-                    cached_channels.add(raw_channel)
-                    continue
-
-            else:
-                if (
-                        '//' in raw_channel or 't.me' in raw_channel) and "+" not in raw_channel:  # если имеем дело с ссылкой на публичный канал
-                    channel = '@' + channel[channel.index('.me/') + 4:]  # переводим в формат @channel
-                elif '+' in raw_channel and raw_channel[0] == "@":
-                    channel = f"https://t.me/{raw_channel[1:]}"
-                    print(channel)
+            if ('//' in raw_channel or 't.me' in raw_channel) and "+" not in raw_channel:  # если имеем дело с ссылкой на публичный канал
+                channel = '@' + channel[channel.index('.me/') + 4:]  # переводим в формат @channel
+            elif '+' in raw_channel and raw_channel[0] == "@":
+                channel = f"https://t.me/{raw_channel[1:]}"
+                print(channel)
 
             try:
                 if not any(
