@@ -24,6 +24,10 @@ async def async_search(q):
 loop = asyncio.get_event_loop()
 
 def search_for_channel(query):
-    channel = loop.run_until_complete(async_search(query))
+    try:
+        channel = loop.run_until_complete(async_search(query))
 
-    return '@' + channel if channel else None
+        return '@' + channel if channel else None
+
+    except Exception as e:
+        print(e)
