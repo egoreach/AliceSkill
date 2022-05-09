@@ -3,7 +3,7 @@ from telethon import functions
 
 import asyncio
 
-client = TelegramClient('search', 13071529, 'd8bcc98f1009253c171585543c343c12')
+client = TelegramClient('search', 7891326, 'b626fc3516cdef753a9d27dcf096fd25')
 
 is_started = False
 async def async_search(q):
