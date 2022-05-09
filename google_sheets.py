@@ -85,7 +85,6 @@ with open("current.txt", "w") as f:
 
 
 def add_post(post, channel, channel_link, channel_id, title, date, unix) -> None:
-    sleep(1)
     try:
         get_idle_post_account().append_row([post, channel, channel_link, channel_id, title, date, unix])
 
@@ -109,7 +108,6 @@ def add_post(post, channel, channel_link, channel_id, title, date, unix) -> None
 
 
 def add_posts(some_posts):
-    sleep(1)
     try:
         get_idle_post_account().append_rows(some_posts)
         with open("current.txt", "r+") as f:
