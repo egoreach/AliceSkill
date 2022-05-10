@@ -16,6 +16,7 @@ if __name__ == '__main__':
     async def new_messages_handler(event):
         try:
             raw_message = event.message.to_dict()  # сырое сообщение
+            print(raw_message)
 
             if not raw_message["from_id"]:
                 channel_id = raw_message['peer_id']['channel_id']
