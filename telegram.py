@@ -1,4 +1,5 @@
-from telethon import TelegramClient, events, sync
+from telethon import events
+from telethon.sync import TelegramClient
 from telethon.tl.types import PeerChannel
 
 from telegram_config import api_id, api_hash
